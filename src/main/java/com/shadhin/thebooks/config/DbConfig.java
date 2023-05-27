@@ -10,13 +10,13 @@ import javax.sql.DataSource;
 
 @Configuration
 public class DbConfig {
-    @Bean
+   /* @Bean
     public DataSource dataSource(){
         HikariConfig config = new HikariConfig();
         config.setDriverClassName("org.postgresql.Driver");
-        config.setJdbcUrl("jdbc:postgresql://postgres:n7SWUZ8Gbruqxpu1SSJR@containers-us-west-175.railway.app:6489/railway");
-        config.setUsername("postgres");
-        config.setPassword("n7SWUZ8Gbruqxpu1SSJR");
+        config.setJdbcUrl("");
+        config.setUsername("");
+        config.setPassword("");
         return new HikariDataSource(config);
-    }
+    }*/
 }
