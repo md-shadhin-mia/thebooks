@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="home :: htmlHead('Books')">
+
+</head>
+<body>
+<header th:replace="home::header_main"></header>
+<section class="section">
+    <div class="container">
+        <div class="flex">
+            <h1 class="title">Books</h1>
+            <a class="button is-primary" href="/books/create">Create Book</a>
+        </div>
+
+
+        <table class="table is-fullwidth">
+            <thead>
+            <tr>
+                <th>
+                    <a th:href="@{/books?sortBy=title}">Title</a>
+                </th>
+                <th>
+                    <a th:href="@{/books?sortBy=isbn}">ISBN</a>
+                </th>
+                <th>
+                    <a th:href="@{/books?sortBy=publicationYear}">Publication Year</a>
+                </th>
+                <th>
+                    <a th:href="@{/books?sortBy=price}">Price</a>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="book : ${paginationResponse.data}">
+                <td th:text="${book.title}"></td>
+                <td th:text="${book.isbn}"></td>
+                <td th:text="${book.publicationYear}"></td>
+                <td th:text="${book.price}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <nav class="pagination is-centered" th:if="${paginationResponse}">
+            <ul class="pagination-list">
+                <li th:if="${paginationResponse.prevPage}">
+                    <a class="pagination-link" th:href="@{${'books'}(page=${pagination.prevPage})}">Previous</a>
+                </li>
+                <li th:unless="${paginationResponse.prevPage}" >
+                    <a class="pagination-link" href="#" disabled>Previous</a>
+                </li>
+
+                <li th:if="${paginationResponse.nextPage}">
+                    <a class="pagination-link" th:href="@{${'books'}(page=${pagination.nextPage})}">Next</a>
+                </li>
+                <li th:unless="${paginationResponse.nextPage}" >
+                    <a class="pagination-link" href="#" disabled>Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</section>
+<footer th:replace="home::footer_main"></footer>
+
+<script src="/app.js"> </script>
+<script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+
+</body>
+</html>

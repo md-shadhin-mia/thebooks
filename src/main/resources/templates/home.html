@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="htmlHead(title)">
+    <title th:if="${title}" th:text="${title}">Landing Page</title>
+    <title th:unless="${title}">Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <style>
+        /* Custom Styles */
+        .book-icon {
+            width: 150px;
+            height: auto;
+        }
+        .hero.is-primary {
+            background-color: #333;
+            color: #fff;
+        }
+        .section.features {
+            background-color: #e2ffde;
+            color: #333;
+        }
+        .section.books {
+            background-color: #355646;
+            color: #fff;
+        }
+        .section.authors {
+            background-color: #e2ffde;
+            color: #333;
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<header th:fragment="header_main">
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">Logo</a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="/swagger-ui.html">Docs</a>
+                <a class="navbar-item" href="/books">Books</a>
+                <a class="navbar-item" href="#">Authors</a>
+                <a class="navbar-item" href="#">Contact</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title">The Book</h1>
+            <img src="/book-icon.svg" alt="Book Icon" class="book-icon">
+            <div class="buttons">
+                <a class="button is-primary" href="#">GitHub</a>
+                <a class="button is-primary" href="#">Website</a>
+                <a class="button is-primary" href="#">Tools</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section features">
+    <div class="container">
+        <h2 class="subtitle">Features</h2>
+        <div class="columns">
+            <div class="column">
+                <h3 class="title is-4">Books</h3>
+                <p>Manage and display books in the system.</p>
+            </div>
+            <div class="column">
+                <h3 class="title is-4">Authors</h3>
+                <p>Manage and display authors in the system.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section books" th:if="${books}">
+    <div class="container">
+        <h2 class="subtitle">Books</h2>
+        <table class="table is-fullwidth">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Publication Year</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="book : ${books}">
+                    <td th:text="${book.id}"></td>
+                    <td th:text="${book.title}"></td>
+                    <td th:text="${book.publicationYear}"></td>
+                    <td th:text="${book.price}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="has-text-centered">
+            <a class="button is-primary" href="#">More Books</a>
+        </div>
+    </div>
+</section>
+
+<section class="section authors" th:if="${authors}">
+    <div class="container">
+        <h2 class="subtitle">Authors</h2>
+        <table class="table is-fullwidth">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="author : ${authors}">
+                    <td th:text="${author.id}"></td>
+                    <td th:text="${author.name}"></td>
+                    <td th:text="${author.email}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="has-text-centered">
+            <a class="button is-primary" href="#">More Authors</a>
+        </div>
+    </div>
+</section>
+
+<footer class="footer" th:fragment="footer_main">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <h3 class="title is-5">Contact</h3>
+                <p>Name: John Doe</p>
+                <p>Email: john@example.com</p>
+            </div>
+            <div class="column">
+                <h3 class="title is-5">Links</h3>
+                <ul>
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/app.js"> </script>
+<script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+</body>
+</html>
