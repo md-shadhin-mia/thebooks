@@ -14,9 +14,9 @@ public class DbConfig {
     public DataSource dataSource(){
         HikariConfig config = new HikariConfig();
         config.setDriverClassName("org.postgresql.Driver");
-        config.setJdbcUrl("jdbc:postgresql://localhost:5432/postgres");
+        config.setJdbcUrl("jdbc:postgresql://postgres:n7SWUZ8Gbruqxpu1SSJR@containers-us-west-175.railway.app:6489/railway");
         config.setUsername("postgres");
-        config.setPassword("postgres");
+        config.setPassword("n7SWUZ8Gbruqxpu1SSJR");
         return new HikariDataSource(config);
     }
 }
