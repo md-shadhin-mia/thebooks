@@ -18,14 +18,24 @@ Before getting started, ensure you have the following installed on your system:
 
 ## Database Configuration
 
-1. Create a new MySQL database for the application.
-   2. Update the database configuration in the `thebooks.config.DbConfig.java` file located in the `src/main/java` directory.
-      ```java
-      config.setDriverClassName("org.postgresql.Driver");
-      config.setJdbcUrl("jdbc:postgresql://your-hostname:5432/{dbname}");
-      config.setUsername("Your_Username");
-      config.setPassword("Your_Password");```
-   Replace {your-database-name}, {your-username}, and {your-password} with your actual database credentials.
+1. Create a new MySQL database for the application. to Update the database configuration you have to set environment veriable.
+Command for set environtment veriable 
+For Windows Command Prompt:
+      ```
+      set JDBC_URL=<your_JDBC_URL>
+set DB_PS=<your_DB_PS>
+set DB_USER=<your_DB_USER>
+
+      ```
+
+For Unix/Linux/MacOS Terminal:
+
+```
+export JDBC_URL="<your_JDBC_URL>"
+export DB_PS="<your_DB_PS>"
+export DB_USER="<your_DB_USER>"
+```
+   
 ## Building the Application
 To build the application, follow these steps:
 
