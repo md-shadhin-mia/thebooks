@@ -30,6 +30,25 @@
             background-color: #333;
             color: #fff;
         }
+
+        .curl-container {
+  background-color: #f5f7fa;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.curl-container pre {
+  overflow-x: auto;
+}
+
+.curl-container code {
+  display: block;
+  white-space: pre;
+  font-family: monospace;
+  color: #4a4a4a;
+}
+
     </style>
 </head>
 <body>
@@ -48,7 +67,7 @@
                 <a class="navbar-item" href="/swagger-ui.html">Docs</a>
                 <a class="navbar-item" href="/books">Books</a>
                 <a class="navbar-item" href="/authors">Authors</a>
-                <a class="navbar-item" href="#">Contact</a>
+                
             </div>
         </div>
     </nav>
@@ -57,12 +76,11 @@
 <section class="hero is-primary">
     <div class="hero-body">
         <div class="container has-text-centered">
-            <h1 class="title">The Book</h1>
+            <h1 class="title">The Book</h1> 
             <img src="/book-icon.svg" alt="Book Icon" class="book-icon">
             <div class="buttons">
-                <a class="button is-primary" href="#">GitHub</a>
-                <a class="button is-primary" href="#">Website</a>
-                <a class="button is-primary" href="#">Tools</a>
+                <a class="button is-primary" href="https://github.com/muhammadshadhin/thebooks">GitHub</a>
+                <a class="button is-primary" href="/swagger-ui.html">Documentions</a>
             </div>
         </div>
     </div>
@@ -75,10 +93,29 @@
             <div class="column">
                 <h3 class="title is-4">Books</h3>
                 <p>Manage and display books in the system.</p>
+                <div class="curl-container">
+                    <pre>
+                      <code>
+                        curl -X GET \
+                        -H "Content-Type: application/json" \
+                        https://thebooks-production.up.railway.app/api/book
+                      </code>
+                    </pre>
+                  </div>
+                  
             </div>
             <div class="column">
                 <h3 class="title is-4">Authors</h3>
                 <p>Manage and display authors in the system.</p>
+                <div class="curl-container">
+                    <pre>
+                      <code>
+                        curl -X GET \
+                        -H "Content-Type: application/json" \
+                        https://thebooks-production.up.railway.app/api/author
+                      </code>
+                    </pre>
+                  </div>
             </div>
         </div>
     </div>
