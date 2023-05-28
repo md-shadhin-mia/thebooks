@@ -43,6 +43,7 @@ public class PageController {
         return "books";
     }
 
+
     @GetMapping("/books/create")
     public String createBook(){
         return "createBook";
@@ -50,5 +51,16 @@ public class PageController {
     @GetMapping("/books/update/{id}")
     public String updateBook(@PathVariable String id){
         return "updateBook";
+    }
+
+    @GetMapping("/authors")
+    public String authors(Model model,
+                        @RequestParam(defaultValue = "0") int page,
+                        @RequestParam(defaultValue = "10") int limit,
+                        @RequestParam(defaultValue = "id") String sortBy
+                        ){
+        PaginationResponse<Book> paginationResponse = authorService.getList(page, limit, sortBy);
+        model.addAttribute("paginationResponse",paginationResponse);
+        return "authors";
     }
 }

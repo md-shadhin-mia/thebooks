@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="home :: htmlHead('Authors')">
+
+</head>
+<body>
+<header th:replace="home::header_main"></header>
+<section class="section">
+    <div class="container">
+        <div class="flex">
+            <h1 class="title">Authors</h1>
+        </div>
+
+
+        <table class="table is-fullwidth">
+            <thead>
+            <tr>
+                <th>
+                    <a th:href="@{/authors?sortBy=name}">Name</a>
+                </th>
+                <th>
+                    <a th:href="@{/authors?sortBy=email}">Email</a>
+                </th>
+                <th>
+                    <a th:href="@{/authors?sortBy=biography}">Biography</a>
+                </th>
+                
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="author: ${paginationResponse.data}">
+                <td th:text="${author.name}"></td>
+                <td th:text="${author.email}"></td>
+                <td th:text="${author.biography}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <nav class="pagination is-centered" th:if="${paginationResponse}">
+            <ul class="pagination-list">
+                <li th:if="${paginationResponse.prevPage}">
+                    <a class="pagination-link" th:href="@{${'books'}(page=${pagination.prevPage})}">Previous</a>
+                </li>
+                <li th:unless="${paginationResponse.prevPage}" >
+                    <a class="pagination-link" href="#" disabled>Previous</a>
+                </li>
+
+                <li th:if="${paginationResponse.nextPage}">
+                    <a class="pagination-link" th:href="@{${'books'}(page=${pagination.nextPage})}">Next</a>
+                </li>
+                <li th:unless="${paginationResponse.nextPage}" >
+                    <a class="pagination-link" href="#" disabled>Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</section>
+<footer th:replace="home::footer_main"></footer>
+
+<script src="/app.js"> </script>
+<script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+
+</body>
+</html>
