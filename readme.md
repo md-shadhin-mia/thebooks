@@ -22,10 +22,9 @@ Before getting started, ensure you have the following installed on your system:
 Command for set environtment veriable 
 For Windows Command Prompt:
       ```
-      set JDBC_URL=<your_JDBC_URL>
+set JDBC_URL=<your_JDBC_URL>
 set DB_PS=<your_DB_PS>
 set DB_USER=<your_DB_USER>
-
       ```
 
 For Unix/Linux/MacOS Terminal:
@@ -45,6 +44,9 @@ Run the following command to build the application using Maven:
 mvn clean install
 ```
 
+
+## Running the application
+
 This will compile the source code, run tests, and package the application into a JAR file.
 
 To run the application, follow these steps:
@@ -55,9 +57,7 @@ Open a terminal or command prompt in the project root directory.
 
 Run the following command to start the application:
 
-arduino
-Copy code
-mvn spring-boot:run
+```mvn spring-boot:run```
 This will start the Spring Boot application on the configured port (usually 8080).
 
 Once the application is running, you can access it in your web browser at http://localhost:8080.
