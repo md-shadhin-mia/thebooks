@@ -21,11 +21,11 @@ Before getting started, ensure you have the following installed on your system:
 1. Create a new MySQL database for the application. to Update the database configuration you have to set environment veriable.
 Command for set environtment veriable 
 For Windows Command Prompt:
-      ```
+ ```
 set JDBC_URL=<your_JDBC_URL>
 set DB_PS=<your_DB_PS>
 set DB_USER=<your_DB_USER>
-      ```
+```
 
 For Unix/Linux/MacOS Terminal:
 
