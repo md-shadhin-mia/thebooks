@@ -14,11 +14,11 @@ Before getting started, ensure you have the following installed on your system:
 
 - Java Development Kit (JDK) 17 or higher
 - Apache Maven (for building the application)
-- PostgreSQL (or any other database of your choice)
+- PostgreSQL 
 
 ## Database Configuration
 
-1. Create a new MySQL database for the application. to Update the database configuration you have to set environment veriable.
+1. Create a new PostgreSQL database for the application. to Update the database configuration you have to set environment veriable.
 Command for set environtment veriable 
 For Windows Command Prompt:
  ```
@@ -63,4 +63,4 @@ This will start the Spring Boot application on the configured port (usually 8080
 Once the application is running, you can access it in your web browser at http://localhost:8080.
 
 That's it! You have successfully configured, built, and run the Spring Boot application.
-Live url : https://thebooks-production.up.railway.app
+ <!-- Live url : https://thebooks-production.up.railway.app -->
